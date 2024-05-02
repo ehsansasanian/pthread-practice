@@ -1,0 +1,8 @@
+MAKEFFLAGS=-j
+COMPILE=@CC@ @CFLAGS@
+TARGETS=$(subst .c,,$(wildcard *.c))
+%:%.c makefile
+	$(COMPILE) -o $@ $<
+all: $(TARGETS)
+clean:
+	rm -f *~ makefile $(TARGETS)
